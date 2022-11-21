@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>29_logica5</title>
+</head>
+
+<body>
+  <h1>29_logica5</h1>
+  <script>
+    /* 
+      24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+      25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+      26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.*/
+
+    //Ejercicio #1
+    const ordenarArreglo = (arrNum = undefined) => {
+      if (arrNum === undefined) return console.warn("No ingresaste ningun numero");
+      if (!(arrNum instanceof Array)) return console.error(`El valor ${arrNum} debe ser un arreglo`);
+      if (arrNum.length === 0) return console.error("El arreglo esta vacio");
+
+      for (const iter of arrNum) {
+        if (typeof iter !== "number") return console.error(`El valor ${iter} no es un numero`);
+      }
+
+      return console.info({
+        arrNum,
+        asc: arrNum.map(el => el).sort(),
+        desc: arrNum.map(el => el).sort().reverse(),
+      })
+
+    }
+    ordenarArreglo([7, 5, 7, 8, 6])
+
+
+    //Ejercicio #2
+    const quitarDuplicados = (arrNum = undefined) => {
+      if (arrNum === undefined) return console.warn("No ingresaste ningun numero");
+      if (!(arrNum instanceof Array)) return console.error(`El valor ${arrNum} debe ser un arreglo`);
+      if (arrNum.length === 0) return console.error("El arreglo esta vacio");
+      if (arrNum.length === 1) return console.warn("El arreglo debe contar con minimo 2 elementos");
+
+      /* return console.info({
+        original:arrNum,
+        sinDuplicar:arrNum.filter((value,index,self)=> self.indexOf(value)===index)
+      }); */
+      return console.info({
+        original: arrNum,
+        sinDuplicar: [...new Set(arrNum)]
+      })
+    }
+
+    quitarDuplicados(["x", 10, "x", 2, "10", 10, true, true, false])
+
+
+
+    //Ejercicio #3
+
+    const promedio = (arrNum = undefined) => {
+      if (arrNum === undefined) return console.warn("No ingresaste ningun numero");
+      if (!(arrNum instanceof Array)) return console.error(`El valor ${arrNum} debe ser un arreglo`);
+      if (arrNum.length === 0) return console.error("El arreglo esta vacio");
+
+      for (const iter of arrNum) {
+        if (typeof iter !== "number") return console.error(`El valor ${iter} no es un numero`);
+      }
+      let suma = 0;
+      for (let i = 0; i < arrNum.length; i++) {
+        suma += arrNum[i]
+      }
+      return console.info(`El promedio de ${arrNum} es ${suma / arrNum.length}`);
+
+    }
+
+    promedio([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+    promedio([4, 4, 4])
+    promedio([3.2, 4, 5, 4.5])
+
+    console.log("-----------------Solucion--------------------------");
+    const promedio2 = (arrNum = undefined) => {
+      if (arrNum === undefined) return console.warn("No ingresaste ningun numero");
+      if (!(arrNum instanceof Array)) return console.error(`El valor ${arrNum} debe ser un arreglo`);
+      if (arrNum.length === 0) return console.error("El arreglo esta vacio");
+
+      for (const iter of arrNum) {
+        if (typeof iter !== "number") return console.error(`El valor ${iter} no es un numero`);
+      }
+
+      return console.info(
+        arrNum.reduce((total, num, index, arrNum) =>{
+          total += num;
+          if (index===arrNum.length-1) {
+            return `El promedio de ${arrNum.join(" + ")} es ${total/arrNum.length}`
+          } else{
+            return total
+          }
+        })
+      );
+
+    }
+
+    promedio2([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+  </script>
+
+
+</body>
+
+</html>

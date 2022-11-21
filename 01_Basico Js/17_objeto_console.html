@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Objeto Console</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <h1>OBJETO CONSOLE</h1>
+    <script>
+        //console es un objeto nativo de js
+        let nombre="Stiven",
+        apellido="Salamanca",
+        edad=31;
+
+        console.log(console);
+        console.error("Esto es un error");
+        console.warn("Esto es un aviso");
+        console.info("Este es un mensaje informal")
+        console.log("Este es un registro de lo que a pasado en nuestra");
+
+        console.log(`Hola mi nombre es ${nombre} ${apellido} y tengo ${edad}`);
+
+        console.log(`Hola mi nombre es %s %s y tengo %d años de edad`,nombre,apellido,edad);
+
+        // console.clear();
+
+        console.group("Probando grupos");
+        //Ventana del navegador
+        console.log(window);
+        //Representacion del documento en html
+        console.log(document);
+        //Alternativa
+        console.dir(window);
+        console.dir(document);
+        console.groupEnd();
+
+        //mostrar a manera de tableta
+        console.table(Object.entries(console).sort());
+
+        const numeros=[1,2,3,4,5,6,7,8,9,0],
+        vocales=["a","e","i","o","u"];
+
+        console.table(numeros);
+        console.table(vocales);
+
+        const perro={
+            nombre:"Kory",
+            raza:"Boxer",
+            color:"Cafe"
+        };
+
+        console.table(perro);
+        console.clear();
+
+        // contar tiempo de carga
+        console.time("Cuanto tarda mi lian de codigo")
+        const arreglo=Array(1000000);
+        
+        for (let i = 0; i < arreglo.length; i++) {
+            arreglo[i] = i;
+        }
+        console.timeEnd("Cuanto tarda mi lian de codigo")
+        // console.log(arreglo);
+        console.clear();
+
+        //siguiente para ver cuantas veces se ejecuta un codigo
+
+        for (let i = 0; i <= 100; i++) {
+            console.count("For #");
+            console.log(i);
+        }
+        console.clear();
+        //Libreria para hacer pruebas
+        let x=5,
+        y=4,
+        pruebaxy="Se espera que X siempre se menor que y"
+        console.assert(x<y,{x,y,pruebaxy});
+        
+
+
+
+    </script>
+    </body>
+</html>

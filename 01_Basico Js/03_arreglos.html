@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h1>
+        ARREGLOS(Array)
+    </h1>
+    <script>
+        const a = [];
+        console.log(a);
+
+        console.log("--------------");
+        const b = Array.of("a", "b", "c", 1, 2, 3)
+        console.log(b);
+
+        const d = Array(100).fill(false)
+        console.log(d);
+
+        const e = new Array();//ya casi no se usa 
+        console.log(e);
+
+        const f = new Array(1, 2, 3, true, false);//ya casi no se usa 
+        console.log(f);
+
+        const colors = ["rojo", "verde", "azul"];
+        console.log(colors);
+
+        colors.push("Negro")//Agrega un elemento al final
+
+        console.log(colors);
+
+        colors.pop();//Elimina un valor al final
+        console.log(colors);
+
+        colors.forEach(function(el, index){//index es una propiedad para numerar
+            console.log(`<li id="${index}">${el}</li>`);
+        })
+
+
+
+    </script>
+</body>
+
+</html>

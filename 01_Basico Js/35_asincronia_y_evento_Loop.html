@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asincronía y evento Loop</title>
+</head>
+
+<body>
+    <h1>Asincronía y evento Loop</h1>
+    <script>
+
+        /* ********** Curso JavaScript: 45. Asincronía y el Event Loop - #jonmircha ********** */
+
+        /* Antes de explicar cómo funciona el modelo de JavaScript es importante entender algunos conceptos:
+         Procesamiento Monohilo y Multihilo.
+         Operaciones de CPU y Operaciones de I/O.
+         Operaciones Concurrentes y Paralelas.
+         Operaciones Bloqueantes y No Bloqueantes.
+         Operaciones Síncronas y Asíncronas.
+         Javascript usa un modelo asíncrono y no bloqueante, con un loop de eventos implementado en un solo hilo, (single thread) para operaciones de entrada y salida (input/output).
+         */
+
+        //Codigo Sincrono Bloqueante
+        console.log("Inicio");
+
+        function dos() {
+            console.log("Dos");
+        }
+
+        function uno() {
+            console.log("Uno");
+            dos();
+            console.log("Tres");
+        }
+
+        uno();
+        console.log("Fin");
+
+        console.log("---------------------------------------------------------------------");
+
+        //Codigo Asincrono No Bloqueante
+        //------------------------------
+        console.log("Inicio");
+
+        function dos() {
+            setTimeout(function () {
+                console.log("Dos");
+            }, 1000);
+        }
+
+        function uno() {
+            setTimeout(function () {
+                console.log("Uno");
+            }, 0);
+            dos();
+            console.log("Tres");
+        }
+
+        uno();
+        console.log("Fin");
+
+
+
+
+
+    </script>
+</body>
+
+</html>

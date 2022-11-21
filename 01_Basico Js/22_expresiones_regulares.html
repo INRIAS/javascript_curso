@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPRESIONES REGULARES</title>
+</head>
+
+<body>
+    <H1>EXPRESIONES REGULARES</H1>
+    <Script>
+        /* **********     Curso JavaScript: 31. Expresiones Regulares - #jonmircha     ********** */
+        /*
+         Expresiones Regulares
+            Son una secuencia de caracteres que forma un patrón de búsqueda, principalmente utilizada para la búsqueda de patrones de cadenas de caracteres.
+            https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular
+            https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions
+        */
+        let cadena = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur natus quos harum aspernatur et adipisci distinctio repellat commodi soluta ipsum. Harum quos saepe sed doloremque, modi quae in amet dicta.123 lorem lorem1"
+        /*
+        Ex i = omite mayusculas y minusculas
+        Ex g = busta todas las coincidencia posibles*/
+
+        /* let expReg = new RegExp("lorem", "ig");
+        //Me evalua en forma booleana
+        console.log(expReg.test(cadena));
+        //me devuelve info en forma de prototipo array
+        console.log(expReg.exec(cadena)); */
+        
+        let expReg2 = /lorem{0,2}/ig;
+        // let expReg3 = /\d/ig;
+        let expReg3 = /[01]/ig;
+        console.log(expReg2.test(cadena));
+        console.log(expReg2.exec(cadena));
+        console.log(expReg3.exec(cadena));
+    </Script>
+</body>
+
+</html>

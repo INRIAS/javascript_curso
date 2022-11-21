@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+  </head>
+  <body>
+    <h1>Probando CALLBACKS</h1>
+  </body>
+  <script src="callbacks.js"></script>
+  <script>
+    //El resultado de sumar 2 numeros
+    //El resultado elevado al cuadrado
+    //El resultado divido en 2
+    //el resultado restarle 100
+    //El resultado validar si es mayor que 0
+
+    /* const sumar = (num1, num2, cb) => {
+      cb(num1 + num2);
+    };
+
+    const cuadrado = (num1, cb) => {
+      cb(num1 * num1);
+    };
+
+    const dividir = (num1, cb) => {
+      cb(num1 / 2);
+    };
+
+    const restar = (num1, cb) => {
+      cb(num1 - 100);
+    };
+
+    const mayorCero = (num1,cb) => {
+      cb(num1 > 0 ?`${num1} es mayor que 0` :`${num1} es menor que 0`);
+    };
+
+    sumar(2, 2, (resultSuma) => {
+      console.log("El resultado de sumar es: ", resultSuma);
+      cuadrado(resultSuma, (resultCuadrado) => {
+        console.log("El resultado del cuadrado de la suma es:", resultCuadrado);
+        dividir(resultCuadrado, (resultDividir) => {
+          console.log("El resultado de dividir el numero °2 es: ",resultDividir);
+          restar(resultDividir, (resultRestar) => {
+            console.log("El resultado de restar 100 a la divición es: ",resultRestar);
+            mayorCero(resultRestar, (mayorOMenor) => {
+              console.log("El resultado es que:", mayorOMenor);
+            });
+          });
+        });
+      });
+    }); */
+
+    //--------------------------------
+
+    const sumar = (num1, num2, cb) => {
+      cb(num1 + num2);
+    };
+
+    const cuadrado = (num1, cb) => {
+      cb(num1 * num1);
+    };
+
+    const dividir = (num1, cb) => {
+      cb(num1 / 2);
+    };
+
+    const restar = (num1, cb) => {
+      cb(num1 - 100);
+    };
+
+    const mayorCero = (num1,cb) => {
+      cb(num1 > 0 ?`${num1} es mayor que 0` :`${num1} es menor que 0`);
+    };
+
+    //--------------------------------
+    
+    
+    sumar(3, 3,resultSuma);
+
+
+  </script>
+</html>

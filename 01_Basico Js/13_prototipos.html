@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PROTOTIPOS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <h1>PROTOTIPOS</h1>
+    <script>
+        //POO
+        /*
+        Clases-Modelo a seguir.
+        Objetos- Es una instancia de una clase
+            -Atributos- Caracteriztica o propiedad de un objeto(Variables dentro de un objeto)
+            -Métodos-Acciones que un objeto puede ejecutar
+        */
+
+        const animal={
+            nombre:"Snoopy",
+            sonar(){
+                console.log("Hola Snoopy");
+            }
+        }
+        console.log(animal);
+        
+//--------------------------------------------------------------
+        //Primero Funcion constructora
+        function Animal(nombre, genero) {
+            this.nombre=nombre;
+            this.genero=genero;
+
+        }
+        Animal.prototype.sonar2=function(){
+            console.log("Hago sonidos cuando me llaman");
+        }
+
+        Animal.prototype.saludar=function(){
+            console.log(`Hola mi nombre es ${this.nombre}`);
+        }
+
+
+
+        //Segundo instanciar
+        const snoopy = new Animal("Snoopy","Macho");
+        const bost = new Animal("Bost","Hembra");
+        
+        console.log(snoopy);
+        console.log(bost);
+
+        snoopy.sonar2();
+        snoopy.saludar();
+
+        bost.sonar2();
+        bost.saludar();
+        
+
+    </script>
+    </body>
+</html>

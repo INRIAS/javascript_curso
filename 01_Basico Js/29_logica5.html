@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>29_logica5</title>
+</head>
+
+<body>
+  <h1>29_logica5</h1>
+  <script>
+    /* 
+      15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+      16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+      17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020). */
+
+    //Ejercicio #1
+
+    const convertirBinarioDecimal = (numero = undefined, base = undefined) => {
+      if (numero === undefined) return console.warn("No ingresaste ningun numero");
+      if (typeof numero !== "number") return console.error(`El dato ingresado ${numero} No es numero`);
+      if (base === undefined) return console.warn("No ingresaste el tipo de grado a convertir");
+      if (typeof base !== "number") return console.error(`El dato ingresado ${base} No es numero`);
+
+      if (base === 2) {
+        return console.info(`${numero} base ${base} = ${parseInt(numero, base)} base 10`);
+      }
+      if (base === 10) {
+        return console.info(`${numero} base ${base} = ${numero.toString(2)} base 2`);
+      } else {
+        return console.error("El tipo de base a convertir No es valido")
+      }
+    }
+
+    convertirBinarioDecimal(100, 2)
+    convertirBinarioDecimal(4, 10)
+    convertirBinarioDecimal(101, 10)
+    convertirBinarioDecimal(5, 10)
+
+
+    console.log("------------------------------");
+    //Ejercicio #2
+    const valorConDes = (precio = undefined, descu = undefined) => {
+      if (precio === undefined) return console.warn("No ingresaste ningun numero")
+      if (typeof precio !== "number") return console.error(`El dato ingresado ${precio} No es numero`)
+      if (Math.sign(precio) === -1) return console.warn(`El numero ${precio} no puede se negativo`)
+      if (descu === undefined) return console.warn("No ingresaste ningun valor de descuento")
+      if (typeof descu !== "number") return console.error(`El dato ingresado ${descu} No es numero`)
+      if (Math.sign(descu) === -1) return console.warn(`El numero ${descu} no puede se negativo`)
+
+      let valorDescu = (precio * descu) / 100
+      let valorTotal = precio - valorDescu
+      console.log(valorTotal);
+    }
+
+    valorConDes(1200, 20)
+    valorConDes(1000,)
+    valorConDes("a", 20)
+    valorConDes(1000, "a")
+    valorConDes(-1000, 20)
+    valorConDes(1000, -20)
+
+    console.log("------------------------------");
+    //Ejercicio #3
+    const calcularAnios = (fecha = undefined) => {
+      if (fecha === undefined) return console.warn("No ingresaste la feha");
+
+      if (!(fecha instanceof Date)) return console.error("El valor que ingresaste no es una fecha valida");
+
+      let hoyMenosFecha = new Date().getTime() - fecha.getTime(),
+        aniosEnMS = 1000 * 60 * 60 * 24 * 365,
+        aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMS);
+
+      return (Math.sign(aniosHumanos) === -1)
+        ? console.info(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}`)
+        : (Math.sign(aniosHumanos) === 1)
+          ? console.info(`han pasado ${aniosHumanos} años desde ${fecha.getFullYear()}`)
+          : console.info(`Estamos en el año actual ${fecha.getFullYear()}`)
+    }
+
+    calcularAnios();
+    calcularAnios([]);
+    calcularAnios(false);
+    calcularAnios(new Date());
+    calcularAnios(new Date(1984, 4, 23));
+    calcularAnios(new Date(1884, 4, 23));
+    calcularAnios(new Date(2084, 4, 23));
+
+  </script>
+
+
+</body>
+
+</html>

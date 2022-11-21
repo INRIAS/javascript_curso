@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>48_call_apply_bind </title>
+</head>
+
+<body>
+    <h1>48_call_apply_bind</h1>
+    <script>
+        //Metodos para mantener el scope 
+        console.log(this);//propiedades de windows
+        this.lugar = "Contexto Global";
+
+        function saludar(saludo, aQuien) {
+            console.log(`${saludo} ${aQuien} desde el ${this.lugar}`);
+        }
+        saludar("Hola", "Kory");
+
+
+        const obj = {
+            lugar: "Contexto objeto"
+        }
+        //DIFERENCIAS
+        saludar.call(obj, "Hola", "Stiven")//se le pasan los parametros separados por coma
+        saludar.call(null, "Hola", "Stiven")//toma el scope global
+        saludar.apply(obj, ["Que se dice", "Stiven"])//se le pasan los parametros por un arreglo
+        saludar.apply(null, ["Que se dice", "Stiven"])
+        saludar.apply(this, ["Que se dice", "Stiven"])
+
+        this.nombre="window"
+
+        //METODO BIND
+        //Este enlaza el contexto de la funcione u objeto
+        const persona={
+            nombre:"Stiven",
+            saludar:function() {
+                console.log(`Hola ${this.nombre}`);
+            }
+        }
+        persona.saludar();
+        
+        //persona.saluda.. llama la funcion de persona pero me busca el this.nombre
+        //como no tiene me marca undefine.
+        //aqui uso bind para que me tome el contexto de persona en este caso nombre
+
+        const otraPersona={
+            saludar:persona.saludar.bind(this)
+        }
+
+        otraPersona.saludar();
+
+
+    </script>
+</body>
+
+</html>

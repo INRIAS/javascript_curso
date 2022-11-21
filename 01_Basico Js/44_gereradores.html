@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>44_gereradores</title>
+</head>
+
+<body>
+    <h1>44_gereradores</h1>
+    <script>
+        //es una funcion para trabajar mas facil los iteradores
+        //convertir el codigo de una funcion en iterable o de conteo
+
+        //* es lo que la vuelve un generator
+        //yield es el retund para funciones iterables
+        function* iterable() {
+            yield "Hola";
+            console.log("Hola consola");
+            yield "Hola2";
+            console.log("Seguimos con mas instrucciones");
+            yield "Hola3";
+            yield "Hola4";
+        }
+
+        let iterador=iterable()
+        /* console.log(iterador.next());
+        console.log(iterador.next());
+        console.log(iterador.next());
+        console.log(iterador.next());
+        console.log(iterador.next()); */
+
+        for (const y of iterador) {
+            console.log(y);
+        }
+
+        const arr = [...iterable()];
+        console.log(arr);
+
+        //Operacion cuadratica
+        function cuadrado(valor) {
+            setTimeout(() => {
+                return console.log({valor, resultado: valor*valor});
+            }, Math.random()*1000);
+        }
+
+        function* generador() {
+            console.log("Inicio");
+            yield cuadrado(0);
+            yield cuadrado(1);
+            yield cuadrado(2);
+            yield cuadrado(3);
+            yield cuadrado(4);
+            yield cuadrado(5);
+            console.log("Fin");
+        }
+
+        let gen = generador();
+        for (const y of gen) {
+            console.log(y);
+        }
+        </script>
+</body>
+
+</html>

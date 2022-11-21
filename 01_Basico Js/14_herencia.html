@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HERENCIAS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="css/style.css" rel="stylesheet">] -->
+</head>
+
+<body>
+    <h1>HERENCIAS</h1>
+    <script>
+        //POO
+        /*
+        Clases-Modelo a seguir.
+        Objetos- Es una instancia de una clase
+            -Atributos- Caracteriztica o propiedad de un objeto(Variables dentro de un objeto)
+            -Métodos-Acciones que un objeto puede ejecutar
+        */
+
+        /* const animal = {
+            nombre: "Snoopy",
+            sonar(){
+                console.log("Hola Snoopy");
+            }
+        }
+        console.log(animal); */
+
+        //Primero Funcion constructora
+        function Animal(nombre, genero) {
+            this.nombre = nombre;
+            this.genero = genero;
+        }
+
+        Animal.prototype.sonar2 = function () {
+            console.log("Hago sonidos cuando me llaman");
+        }
+
+        Animal.prototype.saludar = function () {
+            console.log(`Hola mi nombre es ${this.nombre}`);
+        }
+
+
+        //Herencia
+        function Perro(nombre, genero, tamanio) {
+            this.super = Animal;
+            this.super(nombre, genero);
+            this.tamanio = tamanio;
+        }
+
+        Perro.prototype = new Animal();//Instancia de animal(Utilizar los datos)
+        Perro.prototype.constructor = Perro;//Crear su propio constructor a la que hereda
+
+        //Sobreescritura de metodos del prototipo padre en el hijo
+
+        Perro.prototype.sonar = function () {
+            console.log("Soy un perro y mi sonido es un ladrido");
+        }
+        Perro.prototype.ladrar = function () {
+            console.log(`wow wow yo soy ${this.nombre} soy el dueño de este patio`);
+        }
+        //----------------------------------------------------------------------
+        //Segundo instanciar
+        const snoopy = new Perro("Snoopy", "Macho", "Mediano");
+        const lucas = new Animal("Lucas", "Macho", "Pequeño");
+        const bost = new Animal("Bost", "Hembra");
+
+        console.log(snoopy);
+        console.log(bost);
+        console.log(lucas);
+
+        lucas.sonar2();
+        lucas.saludar();
+
+        snoopy.sonar();
+        snoopy.saludar();
+        snoopy.ladrar()
+
+        bost.sonar2();
+        bost.saludar();
+
+
+    </script>
+</body>
+
+</html>

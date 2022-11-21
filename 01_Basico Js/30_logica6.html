@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30_logica6</title>
+</head>
+
+<body>
+  <h1>30_logica6</h1>
+  <script>
+    /*
+    18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+    19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+    20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero. */
+
+    //Ejercicio #1
+    const contarLetras = (cadena = "") => {
+      if (!cadena) return console.warn("No ingresaste ninguna cadena de texto");
+      if (typeof cadena !== "string") return console.error(`El valor ${cadena}, no es una cadena de texto`);
+      let vocales = 0,consonantes = 0
+      cadena = cadena.toLowerCase();
+
+      for (const letra of cadena) {
+        if (/[aeiouáéíóúü]/.test(letra)) vocales++;
+
+        if (/[bcdfghjklmnñpqrstvwxyz]/.test(letra)) consonantes++;
+
+      }
+
+      return console.info({
+        cadena,
+        vocales,
+        consonantes
+      });
+    }
+    contarLetras();
+    contarLetras(3);
+    contarLetras("Hola Mundo");
+
+
+      //Ejercicio #2
+      const validarNombre=(nombre="")=>{
+        if(!nombre) return console.warn("No ingresaste ningun nombre");
+        if (typeof nombre !== "string") return console.error(`El valor ${nombre}, no es una cadena de texto`);
+        //^ circunflejo no permite nada antes de la expresion
+        //$ dollar no permite nada despues de la expresion a validar
+        //[] llaves agrupa
+        //+ el mas evalua cada caracter
+        let expReg = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$/g.test(nombre);
+
+        return (expReg)
+        ?console.info(`"${nombre}", es un nombre valido`)
+        :console.warn(`"${nombre}", No es un nombre valido`);
+      }
+
+      validarNombre();
+      validarNombre(3);
+      validarNombre("Stiven As");
+      validarNombre("Stiven As,3");
+
+      //Ejercicio #3
+
+      const validarEmail=(email="")=>{
+        if(!email) return console.warn("No ingresaste ningun email");
+        if (typeof email !== "string") return console.error(`El valor ${email}, no es un email`);
+        //^ circunflejo no permite nada antes de la expresion
+        //$ dollar no permite nada despues de la expresion a validar
+        //[] llaves agrupa
+        //+ el mas evalua cada caracter
+        let expReg = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(email);
+
+        return (expReg)
+        ?console.info(`"${email}", es un nombre valido`)
+        :console.warn(`"${email}", No es un nombre valido`);
+      }
+
+      const validarPatron=(cadena="",patron="")=>{
+        if(!cadena) return console.warn("No ingresaste ningun cadena");
+        if (typeof cadena !== "string") return console.error(`El valor ${cadena}, no es una cadena`);
+        if(!patron) return console.warn("No ingresaste ningun patron");
+        if (!(patron instanceof RegExp)) return console.error(`El valor ${patron}, no es un patron`);
+        //^ circunflejo no permite nada antes de la expresion
+        //$ dollar no permite nada despues de la expresion a validar
+        //[] llaves agrupa
+        //+ el mas evalua cada caracter
+        let expReg = patron.test(cadena);
+
+        return (expReg)
+        ?console.info(`"${cadena}", cumple con el patron ingresado`)
+        :console.warn(`"${cadena}", No cumple con el patron`);
+      }
+
+      validarPatron("inrias898_a@gmail.com",new RegExp("[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})","i"));
+      validarPatron("inrias898@gmail.co",/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})+/i);
+      
+
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNCIONES ANONIMAS AUTOEJECUTABLES</title>
+</head>
+
+<body>
+    <H1>FUNCIONES ANONIMAS AUTOEJECUTABLES</H1>
+    <Script>
+        //los parentecis significan ejecucion
+        // alert("")
+        //La funiones anonimas aut deben in encerradas en parentecis para generar un espacio en memoria
+        (function () {
+            console.log("Mi primer autoejecutable");
+        })();//el punto y como es obligatorio
+
+
+        (function (d,w,c) {
+            console.log("Mi segundo autoejecutable");
+            console.log(d,w,c);
+        })(document,window,console);//el punto y como es obligatorio
+       
+       
+        console.log("--------------");
+        //Formas de escribir FAA
+        //CLASICA
+        (function(){
+            console.log("Version Clasica");
+        })();
+
+        //La Crockford (JavaScript The Good Parts)
+        ((function(){
+            console.log("Version Crockford");
+        })());
+
+        //UNARIA
+        +function() {
+            console.log("Version Unaria");
+        }();
+
+        //Facebook
+        !function () {
+            console.log("Version Facebook");
+        }();
+
+
+        </Script>
+</body>
+
+</html>

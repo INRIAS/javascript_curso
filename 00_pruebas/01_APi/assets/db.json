@@ -1,0 +1,49 @@
+{
+  "karakura": [
+    {
+      "id": 1,
+      "nombre": "Ichigo",
+      "rango": "Shinigami Sustituto"
+    },
+    {
+      "id": 2,
+      "nombre": "Orihime",
+      "rango": "Full Briger"
+    },
+    {
+      "id": 2,
+      "nombre": "Chada",
+      "rango": "Full Briger"
+    },
+    {
+      "id": 4,
+      "nombre": "Uryu",
+      "rango": "Quincy"
+    },
+    {
+      "nombre": "Don Kanonji",
+      "rango": "Espiritistas",
+      "id": 5
+    },
+    {
+      "nombre": "Chinji",
+      "rango": "Capitans",
+      "id": 6
+    },
+    {
+      "nombre": "Sombrerero",
+      "rango": "Capitan",
+      "id": 10
+    },
+    {
+      "nombre": "Unohana",
+      "rango": "Capitan",
+      "id": 11
+    },
+    {
+      "nombre": "Gin",
+      "rango": "Shinigami",
+      "id": 12
+    }
+  ]
+}

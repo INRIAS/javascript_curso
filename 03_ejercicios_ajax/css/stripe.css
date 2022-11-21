@@ -1,0 +1,77 @@
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.tacos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tacos>* {
+  flex: 1 1 200px;
+  margin: 1rem;
+}
+
+.taco {
+  background-color: rgb(16, 57, 82);
+  color: chartreuse;
+  font-size: 90%;
+  border-radius: 11px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.taco:hover {
+  opacity: .9;
+  transform: scale(0.9);
+}
+
+.taco img {
+  width: 100%;
+  min-height: 60%;
+  height: auto;
+  border-radius: 11px 11px 0 0;
+
+}
+
+.taco figcaption {
+  padding: 1rem;
+}
+
+.success{
+  width: 80%;
+  height: 60%;
+  background-color: darkslategrey;
+  color: antiquewhite;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  margin-bottom: auto;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.success a{
+  color: #fff;
+  text-decoration: none;
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+
+.success:hover{
+  opacity: 0.9;
+  transform: scale(1.1);
+}

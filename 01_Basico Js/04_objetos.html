@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+</head>
+<body>
+    <h1>OBJETOS</h1>
+    <script>
+        /*desntro de un objeto a las variabls se les llama atributo y a las funciones seles denomina metodos*/
+        const stivem={
+            nombre:"Stiven",
+            apellido:"Alvarez",
+            edad:30,
+            trabajo:["Diseñador", "Freelance"],
+            contactos:{
+                Numero:233453,
+                celular:3544356,
+                email:"email"
+            },
+        saludar:function(){
+            console.log("Hola");
+        },
+
+        decirMiNombre:function(){
+            console.log(`Hola me llamo ${this.nombre} ${this.apellido}, mi numero es ${this.contactos.Numero}`);
+        }
+        }
+    console.log(stivem.apellido);
+    console.log(stivem.saludar());
+    stivem.saludar();
+    console.log(stivem.contactos.Numero);//forma de profundizar si hay mas arrays dentro del objeto
+    stivem.decirMiNombre();
+
+    console.log(Object.keys(stivem));//ve trae todos los valores
+    console.log(Object.values(stivem));//me trae todas las claves
+    console.log(stivem.hasOwnProperty("nombre"));//pregunta si el valor esta
+    console.log(stivem.hasOwnProperty("carro"));
+
+
+    </script>
+</body>
+</html>

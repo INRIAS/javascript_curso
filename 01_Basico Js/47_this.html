@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>47_this</title>
+</head>
+
+<body>
+    <h1>47_this</h1>
+    <script>
+       //this es una propiedad de contexto global igual a la propiedad windows
+       console.log(this);
+       console.log(window);
+       console.log(this===window);
+
+       this.nombre="Contexto Global"
+       console.log(this.nombre);
+       
+       function imprimir() {
+           console.log(this.nombre);
+        }
+        imprimir();
+        
+        const obj={
+            nombre:"Contexto de objeto",
+            imprimir:function() {
+            console.log(this.nombre);
+        }
+       }
+       obj.imprimir();
+
+       const obj2={
+        nombre:"Contexto obj 2",
+        imprimir//me trae su funcionamiento mas no su scope
+       }
+       obj2.imprimir();
+       //las funciones normales manejan su propio scope
+
+       //las funciones arrow function no.. estas mantienen su origen 
+       const obj3={
+            nombre:"Contexto de objeto3",
+            imprimir:()=> {
+            console.log(this.nombre);
+        }
+       }
+       obj3.imprimir();
+
+       function Persona(nombre) {
+        const that=this;
+        this.nombre=nombre;
+        // return console.log(this.nombre);
+        // return function() {//esta funcion trae un scope no crea uno nuevo
+        //     console.log(this.nombre);
+        // }
+        // return ()=>{//una ()=> en este punto retornado si me genera un propio scope
+        //     console.log(this.nombre)
+        // }
+
+        //Para compensar esos cambios dentro de una funcion usamos el that
+        return function() {
+            console.log(that.nombre,33);
+        }
+       }
+
+       let jon = new Persona("Stiven")
+       jon();
+    </script>
+</body>
+
+</html>

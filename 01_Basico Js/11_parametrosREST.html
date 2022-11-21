@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parametros REST</title>
+</head>
+
+<body>
+    
+    <h1>Parametros REST</h1>
+    <script>
+        // se usan los 3 puntos(...) cuando el valor es infinito o no sabes cuanto espacio requiere
+        
+        function sumar(a, b, ...c) {
+            let resultado = a + b;
+            c.forEach(function (n) {
+                resultado += n
+            })
+            return resultado;
+        }
+
+        console.log(sumar(1,2));
+        console.log(sumar(1,2,3));
+        console.log(sumar(1,2,4,5,6,7));
+
+        //Y sumar varios objeto o en este caso arrays
+        const art1=[1,2,3,4,5],art2=[5,6,7,8,9];
+        console.log(art1,art2);
+        const art3=[...art1,...art2]
+        console.log(art3);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>41_maps</title>
+</head>
+
+<body>
+    <h1>41_maps</h1>
+    <script>
+        //map es un tipo de objeto iterale
+        let mapa = new Map();
+        mapa.set("Nombre", "Stiven")//set es para agregar o establecer get es para traer el valor de este
+        mapa.set("Apellido", "Alvarez")
+        mapa.set("Edad", 31)
+        mapa.set("Signo", "Geminis")
+
+        console.log(mapa);
+        console.log(mapa.size);
+        console.log(mapa.has("2"));//has pregunta si existe una llave
+        console.log(mapa.has("Nombre"));
+        console.log(mapa.get("Nombre"));
+        mapa.set("Signo", "aries")
+        console.log(mapa);
+
+        for (const [key, value] of mapa) {
+            console.log(`Llave:${key}, Valor:${value}`);
+        }
+
+        const mapa2 = new Map([
+            ["Nombre", "Kory"],
+            ["Raza", "Boxer"],
+            ["Edad", 10],
+            ["Color", "Café"]
+        ])
+
+        console.log(mapa2);
+
+        const llavesMapa2= [...mapa2.keys()];
+        const valoresMapa2= [...mapa2.values()];
+
+        console.log(llavesMapa2);
+        console.log(valoresMapa2);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

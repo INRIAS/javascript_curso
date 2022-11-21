@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Arrow Function</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <h1>ARROW FUNCTION</h1>
+    <script>
+        //Funciones anonimas expresadas
+        const saludar = function(){
+            console.log("Hola Mundo");
+        };
+
+        saludar(); 
+
+        //Arrow Function
+        const saludar2 = ()=>{
+            console.log("Hola Mundo 2");
+        };
+
+        saludar2();
+        
+        //Una sola linea de codigo
+        const saludar3 = ()=>console.log("Hola Mundo 3");
+        saludar3();
+        
+        //Pasando datos
+        const saludar4 = (nombre)=>console.log(`Hola ${nombre}`);
+        saludar4("Irma")
+
+        // Pasando mas de 2 parametros
+        const sumar1 = function(a,b) {
+            return a+b;
+        }
+        console.log(sumar1(1,5));
+
+        const sumar2 = (a,b)=>a+b;
+        console.log(sumar2(5,8));
+
+        //retornar varios
+
+        const functionDeVariasLineas=()=>{
+            console.log("Uno");
+            console.log("Dos");
+            console.log("Tres");
+        }
+
+        functionDeVariasLineas();
+
+        //Recorrer con una funcion
+        //Index es un iterador
+        const numeros =[1,2,3,4,5];
+
+        numeros.forEach((el,index)=>
+        console.log(`${el} esta en la posicion ${index}`));
+
+        //Arrow aplicadas a objetos
+        //Las arrow function no son recomendables crearlas dentro de un objeto
+        const perro ={
+            nombre:"Kory",
+            ladrar(){
+                console.log(this);
+            }
+        }
+
+        perro.ladrar();
+    </script>
+    </body>
+</html>

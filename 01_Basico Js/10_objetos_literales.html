@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Objetos literales</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <h1>OJETOS LITERALES</h1>
+    <script>
+        let nombre= "Kory",
+            edad = "10 años";
+
+        const perro={
+            nombre:nombre,
+            edad:edad,
+            ladrar:function(){
+                console.log("Gua gua");
+            }
+        }
+        console.log(perro);
+        perro.ladrar();
+
+        //Nueva sintaxis
+        const dog={
+            nombre,
+            edad,
+            raza:"boxer",
+            ladrar(){
+                console.log("Gua gua gua");
+            }
+        }
+
+        console.log(dog);
+        dog.ladrar();
+        
+    </script>
+    </body>
+</html>

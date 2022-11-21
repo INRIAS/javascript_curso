@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>39_symbols</title>
+</head>
+<body>
+    <h1>39_symbols</h1>
+    <script>
+        //Symbol es un tipo de dato primitivo
+        //y  este vuelve su valor asignado unico y privado
+
+        let id= Symbol("id");
+        let id2= Symbol("id2");
+
+        console.log(id===id2);
+        console.log(id,id2);
+        console.log(typeof id, typeof id2);
+
+        const NOMBRE = Symbol("Nombre");
+        const SALUDAR = Symbol("Saludar");
+
+        const persona={
+            [NOMBRE]:"Jon",
+            edad:31
+        }
+
+        console.log(persona);
+
+        persona.NOMBRE="Stiven"//altera el objeto pero no el symbol este se conserva
+        console.log(persona);
+        console.log(persona.NOMBRE);
+        console.log(persona[NOMBRE]);
+        
+        persona[SALUDAR]=()=>{
+            console.log("Hola Mundo");
+        }
+        console.log(persona);
+        persona[SALUDAR]();
+
+        for (const propiedad in persona) {
+            console.log(propiedad);
+            console.log(persona[propiedad]);
+        }
+
+        console.log(Object.getOwnPropertySymbols(persona));
+
+
+
+    </script>
+</body>
+</html>

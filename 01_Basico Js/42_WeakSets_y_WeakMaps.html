@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42_WeakSets_y_WeakMaps</title>
+</head>
+
+<body>
+    <h1>42_WeakSets_y_WeakMaps</h1>
+    <script>
+        // No son propiedades iterables
+        const ws = new WeakSet();//No permite iniciar con valores y se ingresan uno a uno
+
+        let valor1 = { "valor1": 1 };
+        let valor2 = { "valor2": 1 };
+        let valor3 = { "valor3": 1 };
+        //solo permite valores debiles como objetos
+        ws.add(valor1)
+        ws.add(valor2)
+        ws.add(valor3)
+        console.log(ws);
+
+        /* setInterval(() => {
+            console.log(ws);
+        }, 1000);
+
+        setTimeout(() => {
+            valor1=null;//SI EL VALOR SE VUELVE NUL O UNDEFINE, ESTE ES LIMPIADO POR EL NAVEGADOR O REMOVIDO
+            valor2=null;
+            valor3=null;
+        }, 5000); */
+
+        /* const mapa2 = new WeakMap([
+            ["Nombre", "Kory"],
+            ["Raza", "Boxer"],
+            ["Edad", 10],
+            ["Color", "Café"]
+        ]) */
+
+        const mapa2 = new WeakMap();
+        let llave1={};
+        let llave2={};
+        let llave3={};
+
+        mapa2.set(llave1,1)
+        mapa2.set(llave2,2)
+        mapa2.set(llave3,3)
+
+        console.log(mapa2);
+
+        console.log(mapa2.get(llave1));
+
+        /* setInterval(() => {
+            console.log(mapa2);
+        }, 1000);
+
+        setTimeout(() => {
+            llave1=null;//SI EL VALOR SE VUELVE NUL O UNDEFINE, ESTE ES LIMPIADO POR EL NAVEGADOR O REMOVIDO
+            llave2=null;
+            llave3=null;
+        }, 3000); */
+
+    </script>
+</body>
+
+</html>

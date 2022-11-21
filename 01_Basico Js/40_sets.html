@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40_sets</title>
+</head>
+<body>
+    <h1>40_sets</h1>
+    <script>
+        // El set es un tipo de array que elimina duplicados
+        const set = new Set([1,2,3,4,4,5,6,true,true,false,{},{}])
+        console.log(set);
+        console.log(set.size);
+        
+        const set2 = new Set()
+        set2.add(1);
+        set2.add(2);
+        set2.add(3);
+        set2.add(3);
+        set2.add(4);
+        set2.add(5);
+        set2.add(true);
+        set2.add(true);
+        set2.add(false);
+        set2.add("hola");
+        set2.add({});
+
+        console.log(set2);
+        console.log(set2.size);
+
+        console.log("Recorriendo set");
+        for (const iterator of set) {
+            console.log(iterator);
+        }
+        
+        console.log("Recorriendo set2");
+        set2.forEach(item => {
+            console.log(item);
+        });
+
+        let arr= Array.from(set)
+        console.log(arr.length);
+        console.log(arr[1]);
+        console.log(arr);
+        
+        set2.delete("hola")
+        console.log(set2);
+        console.log(set2.has("hola"));
+        console.log(set2.has(2));
+        
+        </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>45_proxies</title>
+</head>
+
+<body>
+    <h1>45_proxies</h1>
+    
+    <script>
+        const persona = {
+            nombre: "",
+            apellido: "",
+            edad: 0
+        }
+
+        const manejador = {
+            set(obj, prop, valor) {
+                if (Object.keys(obj).indexOf(prop) === -1) {
+                    console.error(`La propiedad ${prop} no existe en el objeto persona`);
+                }
+                obj[prop] = valor;
+            }
+        }
+
+        const jon = new Proxy(persona, manejador);
+        jon.nombre = "Stiven";
+        jon.apellido = "Alvarez S";
+        jon.edad = 31
+        jon.twitter = "@Stiven_as"
+        console.log(jon);
+        console.log(persona);
+
+    </script>
+</body>
+
+</html>

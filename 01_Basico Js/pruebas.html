@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+        :root{
+            --yellow-color:rgb(255, 238, 7);
+            --black-back:#222;
+
+        }
+        .card{
+            display: inline-block;
+            background-color: blue;
+            color: var(--yellow-color);
+            border-color:red;
+            border-width: 10px;
+            border-style: solid;
+        }
+
+        .card figcaption {
+            padding: 1rem;
+        }
+
+        .rotate-45 {
+            transform: rotate(45deg);
+        }
+
+        .rotate-135 {
+            transform: rotate(135deg);
+        }
+
+        .opacity-80 {
+            opacity: .8;
+        }
+
+        .sepia {
+            filter: sepia(1);
+        }
+
+        .evento_color{
+            background-color: #222;
+        }
+        .evento_color2{
+            background-color: #222;
+        }
+
+        .eventos-flujo div{
+            padding: 4rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+        .uno{
+            background-color: yellow;
+        }
+        .dos{
+            background-color: blue;
+        }
+        .tres{
+            background-color: red;
+        }
+        </style>
+    </head>
+    <body class="prueba">
+        <H1 class="titulo">
+            PRUEBAS UNITARIAS
+        </H1>
+        <p class="parrafo">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia numquam, iusto hic provident et ipsam saepe commodi nisi, velit voluptates voluptas beatae facere placeat quo accusamus repellendus. Ratione, excepturi at?
+        </p>
+
+        <a class="link" href="#">Prueba de Link</a>
+
+        <input class="aTexto" type="text" name="" value="">
+
+        <button type="" onclick="holaMundoP()">Manejador HTML</button>
+        <button type="" id="evento-semantico">Manejador Semántico</button>
+        <button type="" id="evento-multiple">Manejador Multiple</button>
+
+        <section class="cards">
+            <figure class="card">
+                <img src="https://placeimg.com/200/200/people" alt="people">
+                <figcaption>People</figcaption>
+            </figure>
+        </section>
+
+        <template id="template-card">
+            <figure class="card">
+                <img src="" alt="">
+                <figcaption></figcaption>
+            </figure>
+        </template>
+
+        <section class="eventos-flujo">
+            <div class="uno">1
+                <div class="dos">2
+                    <div class="tres">3
+                        <a href="https://jonmircha.com" target="_blank" rel="noopener"> STIVEN</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <ul>
+            <li><a href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li><a href="">3</a></li>
+            <li><a href="">4</a></li>
+            <li><a href="">5</a></li>
+        </ul>
+        <script src="js/pruebas.js"></script>
+    </body>
+</html>

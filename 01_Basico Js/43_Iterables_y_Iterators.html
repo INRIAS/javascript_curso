@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>43_Iterables_y_Iterators</title>
+</head>
+
+<body>
+    <h1>43_Iterables_y_Iterators</h1>
+    <script>
+        //iterable = es que puede ser recorrido
+        //iterador es lo que ayuda a recorrer
+
+        const iterable = [1, 2, 3, 4, 5]
+        // const iterable="Hola Mundo"
+        // const iterable=new Set([1,2,3,4,5])
+        // const iterable=new Map([1,2,3,4,5])
+
+        //Accedemos al iterador del iterable
+        const iterador = iterable[Symbol.iterator]();
+
+        console.log(iterable);
+        console.log(iterador);
+        /*  console.log(iterador.next());
+         console.log(iterador.next());
+         console.log(iterador.next());
+         console.log(iterador.next());
+         console.log(iterador.next());
+         console.log(iterador.next()); */
+
+        let next = iterador.next();
+
+        while (!next.done) {
+            console.log(next.value);
+            next = iterador.next();
+        }
+
+
+
+    </script>
+</body>
+
+</html>

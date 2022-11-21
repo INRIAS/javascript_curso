@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGICA 1</title>
+</head>
+
+<body>
+    <H1>LOGICA 1</H1>
+    <script>
+        /* 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+        2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+        3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+        4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo. */
+
+        //Ejercicio #1
+        //let cadena = "Hola mundo"
+        let suma = 0
+        function sumar(iter) {
+            for (let i = 0; i < iter.length; i++) {
+                iter[i] = suma++;
+            }
+        }
+        sumar("andres");
+        console.log(suma);
+
+        //Desarrollo Teacher
+        /* function contarCaracteres(cadena="") {
+            if (!cadena) {
+                console.log("No ingresaste ningun valor");
+            } else {
+                console.log(`La cadena "${cadena}" tiene ${cadena.length} caracteres`);
+            }
+        }
+        */
+        //Operador ternario
+        const contarCaracteres = (cadena = "") =>
+            (!cadena)
+                ? console.warn("No ingresaste ningun valor")
+                : console.info(`La cadena "${cadena}" tiene ${cadena.length} caracteres`);
+
+        contarCaracteres()
+        contarCaracteres("Hola Mundote")
+
+        console.log("-----------------------------------------------");
+
+
+
+
+        //Ejercicio #2
+        let ingresar = [];
+        let cadena2 = "Hola mundo";
+        tamanio(5)
+        function tamanio(iter) {
+            for (let i = 0; i < iter; i++) {
+                ingresar[i] = cadena2[i];
+
+            }
+            console.log(ingresar);
+        }
+        //Desarrollo Teacher
+
+        const recortarTexto = (cadena = "", longitud = undefined) =>
+            (!cadena)
+                ? console.warn("No ingresaste ningua cadena de texto")
+                : (longitud === undefined)
+                    ? console.warn("No ingresaste la longitud de recorte de texto")
+                    : console.info(cadena.slice(0, longitud))
+
+        recortarTexto("Hola mundo", 4)
+        recortarTexto("Hola mundo",)
+        recortarTexto("", 4)
+        recortarTexto()
+        console.log("-----------------------------------------------");
+
+        //Ejercicio #3
+        separa("Hola mundo que tal")
+        function separa(iter) {
+            console.log(iter.split(' '));
+        }
+        //Desarrollo Teacher
+        const cadenaAArreglo = (cadena = "", separador = undefined) =>
+            (!cadena)
+                ? console.warn("No ingresaste ningua cadena de texto")
+                : (separador === undefined)
+                    ? console.warn("No ingresaste el separador a operar")
+                    : console.info(cadena.split(separador))
+        cadenaAArreglo("Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure numquam totam a perspiciatis ullam asperiores omnis beatae perferendis molestias veritatis alias at, quam qui maxime iusto. Sunt eaque facere veritatis?"," ")
+
+        cadenaAArreglo(""," ")
+        cadenaAArreglo("Lorem",)
+        console.log("-----------------------------------------------");
+        //Ejercicio #4
+
+        +function (cadena,iter) {
+            for (let i = 1; i <= iter; i++) {
+                console.log(cadena + [i]);
+            }
+        }("hola ", 5)
+        //Desarrollo Teacher
+        const repetirTexto=(texto="", veces=undefined)=>{
+            if (!texto)return console.warn("No ingresaste ningua cadena de texto");
+
+            if (veces===undefined)return console.warn("No ingresaste el numero de veces a repetir");
+
+            if (Math.sign(veces)===-1)return console.error("Le numero de veces no puede ser negativo");
+
+            for (let i = 1; i <= veces; i++) console.log(`${texto}, ${i}`);       
+        }
+        repetirTexto("hola",4);
+        repetirTexto("hola");
+        repetirTexto("",4);
+        repetirTexto("Hola",-4);
+
+
+
+        
+
+
+        console.log("-----------------------------------------------");
+    </script>
+</body>
+
+</html>

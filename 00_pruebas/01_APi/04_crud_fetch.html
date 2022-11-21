@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUNDO BLEACH AJAX</title>
+</head>
+<body>
+    <h1>MUNDO BLEACH FETCH ASYNC</h1>
+    <section>
+        <article>
+            <h2 class="crud-title">Ingresar Personaje</h2>
+            <form class="crud-form">
+                <input type="text" name="nombre" placeholder="Nombre:" required><br>
+                <input type="text" name="rango" placeholder="Rango:" required><br>
+                <input type="submit" value="Enviar">
+                <input type="hidden" name="id"><br>
+            </form>
+        </article>
+        <article>
+            <h2>VER PERSONAJES BLEACH</h2>
+            <table id="crud-tabla">
+                <thead>
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>RANGO</th>
+                        <th>OPCIONES</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </article>
+    </section>
+    <template id="crud-template">
+        <tr>
+            <td class="name"></td>
+            <td class="range"></td>
+            <td>
+                <button class="edit">Editar</button>
+                <button class="delete">Eliminar</button>
+            </td>
+        </tr>
+    </template>
+</body>
+<script src="js/crud_fetch.js"></script>
+</html>

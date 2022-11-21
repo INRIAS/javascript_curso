@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANEJO DE ERRORES</title>
+</head>
+<body>
+    <h1>Manejo de Errores</h1>
+
+    <script>
+        try {
+            console.log("En el try se agrega el codigo a evaluar");
+            noExiste;
+        } catch (error) {
+            console.log("En el Catch captura cualquier error surgido o lanzado en el try");
+            console.log(error);
+        } finally{
+            console.log("El bloque finally se ejecutara siempre al final de un bloque try-catch haya error o no");
+        }
+
+        try {
+            let numero ="10";
+            if (isNaN(numero)) {
+                throw new Error("El caracter ingresado no es un numero");
+            }
+
+            console.log(numero*numero);
+        } catch (error) {
+            console.log(`Se produjo el siguiente error: ${error}`);
+        }
+    </script>
+</body>
+</html>

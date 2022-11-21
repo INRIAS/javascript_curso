@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ciclos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+</head>
+
+<body>
+    <h1>CICLOS</h1>
+    <script>
+        //CICLO WHILE
+        let contador = 0;
+        while (contador < 10){
+            console.log(contador);
+            contador++;
+        }
+
+
+        do {
+            console.log(contador);
+            contador++;
+        }
+        while (contador < 10)
+
+        //CICLO FOR
+
+        /* for(1Inicializacion de var, 2condicion, 3decrementto o incremento)
+        {
+            sentencia que se ejecuta
+        } */
+
+        for (let i = 0; i < 10; i++) {
+            console.log("for " + i);
+            
+        }
+
+        let numeros=[10,20,30,40,50,60,70,80,90]
+
+        for (let i = 0; i < numeros.length; i++) {
+            console.log(numeros[i]);
+            
+        }
+
+        //El for in es un loop que nos permite recorrer un objeto e imprime las claves
+        let contactos={
+                Numero:233453,
+                celular:3544356,
+                email:"email"
+            }
+
+        for (const key in contactos) {
+            console.log(`key:${key}, Value ${contactos[key]}`);
+        }
+        //El for in es mas para arreglos
+        for (const i of numeros) {
+            console.log(i);
+        }
+
+        let miNombre="Stiven"
+        for (const iterar of miNombre) {
+            console.log(iterar);
+        }
+
+        let numeros1=[1,2,3,4,5,6,7,8,9,0]
+
+        for (let i = 0; i < numeros1.length; i++) {
+            if(i===5){
+                break;
+            }
+            console.log(numeros1[i]);
+            
+        }
+
+        for (let i = 0; i < numeros1.length; i++) {
+            if(i===5){
+                continue;
+            }
+            console.log(numeros1[i]);
+            
+        }
+
+        
+    </script>
+</body>
+
+</html>

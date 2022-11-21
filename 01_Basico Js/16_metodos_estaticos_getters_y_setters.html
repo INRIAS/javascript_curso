@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Metodos Getter y Setter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>METODOS GETTER Y SETTER</h1>
+    <script>
+        // AZUCAR SINTACTICA
+
+        class Animal {
+            //El constructor es un metodo especial que se ejecuta en el momento de instanciar la clase
+            constructor(nombre, genero) {
+                this.nombre = nombre;
+                this.genero = genero;
+            }
+
+            //METODOS
+            sonar2() {
+                console.log("Hago sonidos cuando me llaman");
+            }
+
+            saludar() {
+                console.log(`Hola mi nombre es ${this.nombre}`);
+            }
+        }
+
+        //HERENCIA
+        class Perro extends Animal {
+            // Recibe los valores a procesar
+            constructor(nombre, genero, tamanio) {
+
+                // llamamos el metodo super para que llame al constructor padre que seria animal, y los atributos que se utilizaran de este
+                super(nombre, genero);
+                this.tamanio = tamanio;
+                this.raza = null;
+            }
+
+            //metodos naturales
+            sonar() {
+                console.log("Soy un perro y hago sonidos de ladrido");
+            }
+
+            ladrar() {
+                console.log("Guauuuu Guaaauuu");
+            }
+
+            //metodos Static
+            static queEres() {
+                console.log("El mejor amigo del hombre");
+            }
+
+            //GET un metodo obtenedor
+            // PARA INDICAR UN METODO OBTENEDOR CON "GET"
+            get getRaza() {
+                return this.raza
+            }
+
+            //Set es un metodo modificador
+            //A 'set' accessor must have exactly one parameter.javascript en este caso Raza
+            set setRaza(raza) {
+                this.raza = raza
+            }
+        }
+
+
+        const mimi = new Animal("Mimi", "Hembra");
+        const scooby = new Perro("Scooby", "Macho","Mediano");
+        const bonito = new Animal("Bonito", "Macho", "Grande");
+
+        Perro.queEres();
+
+        console.log(mimi);
+        mimi.saludar();
+        mimi.sonar2();
+
+
+
+        console.log(bonito);
+        bonito.saludar();
+        bonito.sonar2();
+
+        console.log(scooby);
+        scooby.saludar();
+        scooby.sonar2();
+        scooby.ladrar();
+        //los metodos especiales se tratan como atributos al instanciarlos
+        console.log(scooby.getRaza);
+        scooby.setRaza = "Doverman";
+        console.log(scooby.getRaza);
+        
+    </script>
+
+</body>
+
+</html>

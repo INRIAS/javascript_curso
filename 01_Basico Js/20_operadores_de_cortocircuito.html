@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPERADORES DE CORTOCIRCUITO</title>
+</head>
+<body>
+    <h1>OPERADORES DE CORTOCIRCUITO</h1>
+    <script>
+        //Exprecion OR ||
+        function saludar(nombre) {
+            nombre=nombre || "Desconocido";
+            console.log(`Hola %s`, nombre);
+        }
+
+        saludar("Jon");
+        saludar();
+
+        console.log("Cadena" || "Arco");
+        console.log(19 || "Arco");
+        console.log({} || "Arco");
+        console.log(-1 || "Arco");
+        console.log(false || "Arco");
+        console.log(undefined || "Arco");
+        console.log(null || "Arco");
+        console.log("" || "Arco");
+        console.log(0 || "Arco");
+        
+        //Exprecion AND &&
+        console.log(false && "Arco");
+        console.log(0 && "Arco");
+    </script>
+</body>
+</html>

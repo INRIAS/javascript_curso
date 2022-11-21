@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CONDICIONALES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+</head>
+
+<body>
+    <h1>CONDICIONALES</h1>
+    <script>
+        //ESTRUCTURA DE CONTROL
+
+        /*IF-ELSE*/
+        let edad = 17;
+        let dia = 2
+
+        if (edad > 17) {
+            console.log("es mayor de edad");
+        } else {
+            console.log("es menor de edad");
+        }
+
+        if (dia >= 0 && dia < 6) {
+            console.log("Es de madrugada");
+        } else if (dia >= 6 && dia < 12) {
+            console.log("Es de mañana");
+        } else if (dia >= 12 && dia < 18) {
+            console.log("Es de mañana");
+        } else if (dia >= 18 && dia < 24) {
+            console.log("Es de noche");
+        }
+        let edad2 = 20
+        //Operador ternario
+        console.log("------------------");
+        let eresMayor = (edad2 >= 18)
+            ? "Eres mayor de edad"
+            : "Eres menor de edad";
+        console.log(eresMayor);
+
+        /*Switch case*/
+        let diaSemana = 1;
+        switch (diaSemana) {
+            case 0:
+                console.log("Hoy es Domingo");
+                break;
+            case 1:
+                console.log("Hoy es Lunes");
+                break;
+            case 2:
+                console.log("Hoy es Martes");
+                break;
+            case 3:
+                console.log("Hoy es Miercoles");
+                break;
+            case 4:
+                console.log("Hoy es Jueves");
+                break;
+            case 5:
+                console.log("Hoy es Viernes");
+                break;
+            case 6:
+                console.log("Hoy es Sabado");
+                break;
+            default:
+                console.log("Dia de la semana no existe");
+                break;
+        }
+
+    </script>
+</body>
+
+</html>

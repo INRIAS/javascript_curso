@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>28_logica4</title>
+</head>
+
+<body>
+  <h1>28_logica4</h1>
+  <script>
+    /* 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+      13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+      14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F. */
+
+    //Ejercicio #1
+    const numPrimo = (numero = undefined) => {
+      let contador = 0
+
+      if (numero === undefined) return console.warn("No ingresaste ningun numero")
+      if (numero === 0) return console.warn("El numero ingresado no puede se igual a 0")
+      if (Math.sign(numero) === -1) return console.warn("El numero ingresado no puede se negativo")
+      if (typeof numero !== "number") return console.error(`El dato ingresado ${numero} No es numero`)
+      else {
+        for (let i = 1; i <= numero; i++) {
+          if (numero % i == 0) {
+            contador++
+          }
+        }
+
+        if (contador > 2) {
+          return console.info("El numero ingresado no es primo")
+        } else {
+          return console.info("El numero es primo")
+        }
+      }
+    }
+
+    numPrimo(47)
+
+    //Ejercicio #2
+    const numPar = (numeroPar) =>
+      (!numeroPar)
+        ? console.warn("No ingresaste ningun numero")
+        : (numeroPar % 2 == 0)
+          ? console.info("El numero es par")
+          : console.info("El numero es impar")
+
+    numPar(6)
+
+
+    //Ejercicio #3
+
+    const conevrtiGrados = (grados = undefined, unidad = undefined) => {
+      if (grados === undefined) return console.warn("No ingresaste ningun numero")
+      if (typeof grados !== "number") return console.error(`El dato ingresado ${grados} No es numero`)
+      if (unidad === undefined) return console.warn("No ingresaste el tipo de grado a convertir")
+      if (typeof unidad !== "string") return console.error(`El dato ingresado ${unidad} No es numero`)
+      if (unidad.length !==1 || !/(C|F)/.test(unidad)) return console.warn("el valor de la unidad no es reconocido")
+
+      if (unidad === "C") {
+        return console.info(`${grados}C° = ${Math.round(grados*(9/5)+32)}F°`);
+      }else if (unidad === "F") {
+        return console.info(`${grados}F° = ${Math.round((grados-32)*(5/9))}C°`); 
+      } 
+    }
+
+    conevrtiGrados(0,"C");
+    conevrtiGrados(100,"C");
+    conevrtiGrados(32,"F");
+    conevrtiGrados(100,"F");
+
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>46_Propiedades_Dinámicas_de_los_Objetos</title>
+</head>
+
+<body>
+    <h1>46_Propiedades_Dinámicas_de_los_Objetos</h1>
+    <script>
+        //La notacion de corchetes[] permite formar algo de forma dinamica
+        let aleatorio = Math.round(Math.random() * 100 + 5)
+        const objUsuarios = {
+            [`id_${aleatorio}`]: "Valor aleatorio"
+        }
+        console.log(objUsuarios);
+
+        const usuarios = ["Inri", "Stiven", "Alvarez", "Salamanca"]
+
+        usuarios.forEach((usuario, index) => objUsuarios[`id_${index}`] = usuario)
+        console.log(objUsuarios);
+    </script>
+</body>
+
+</html>

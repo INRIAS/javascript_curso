@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>OBJETO DATE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <h1>OBJETO DATE</h1>
+
+    <script>
+        console.log(Date());
+
+        let fecha = new Date();
+        console.log(fecha);
+
+        //Dia del mes
+        console.log(fecha.getDate());
+        //Dias de la semana D L M M J V S-->0 1 2 3 4 5 6
+        console.log(fecha.getDay());
+        //Mes del año
+        console.log(fecha.getMonth());
+        //Fecha del año presente
+        console.log(fecha.getFullYear());
+        console.log(fecha.getYear());
+        //Hora local
+        console.log(fecha.getHours());
+        console.log(fecha.getMinutes());
+        console.log(fecha.getSeconds());
+        console.log(fecha.toString());
+        console.log(fecha.toDateString());
+        console.log(fecha.toLocaleString());
+        console.log(fecha.toLocaleDateString());        
+        console.log(fecha.toLocaleTimeString());    
+        console.log(fecha.getTimezoneOffset());
+        //fecha con respecto al meridiano
+        console.log(fecha.getUTCDate());
+        console.log(fecha.getUTCHours());
+        console.log(fecha.getUTCFullYear());
+        //Timestamp fecha desde 1970 1 Enero
+        console.log(Date.now());
+
+        </script>
+    </body>
+</html>

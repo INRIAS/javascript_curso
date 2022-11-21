@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALERT CONFIRM Y PROMPT</title>
+</head>
+
+<body>
+    <h1>ALERT CONFIRM Y PROMP</h1>
+    <script>
+        //En node js no existe porque no se maneja la propiedad Window
+        console.log(window);
+        //Alerta
+        //window.alert("Esto es una alerta");
+        //Confirmacion pulce F o V
+        //window.confirm("Esto es una confirmacion");
+        //Ingresar un valor
+        //window.prompt("Esto es una prompt y le permite al usuario ingresar un valor");
+
+        //-----No es obligario la palabra window-----------
+        let alerta = alert("Esto es una alerta");
+        //Confirmacion pulce F o V
+        let confirmacion = confirm("Esto es una confirmacion");
+        //Ingresar un valor
+        let aviso = prompt("Esto es una prompt y le permite al usuario ingresar un valor");
+
+        console.log(alerta);//undefine
+        console.log(confirmacion);//True o False
+        console.log(aviso);//trael el valor ingresado o null si es vacio
+    </script>
+</body>
+
+</html>

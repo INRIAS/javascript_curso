@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asincronía en JavaScript</title>
+</head>
+
+<body>
+    <h1>Asincronía en JavaScript</h1>
+    <script>
+        // <!-- Temporizadores -->
+
+
+        /*  console.log("inicio");
+ 
+         setTimeout(() => {
+             console.log("Ejecutando un seTimeOut, esto se ejecuta una sola vez");
+         }, 3000);//esto se mide en milisegundos
+ 
+         setInterval(() => {
+             console.log("ejecutando un setinterval, esto se ejecuta indefinidamente cada cierto intervalo de tiempo");
+         }, 2000);
+ 
+         setInterval(() => {
+         console.log(new Date().toLocaleTimeString());
+         }, 1000) */
+
+        //------------------ANTITESIS
+
+        let temporizador = setInterval(() => {
+            console.log("ejecutando un setinterval, esto se ejecuta indefinidamente cada cierto intervalo de tiempo");
+        }, 2000)
+
+        clearTimeout(temporizador);
+
+        let tempo = setInterval(() => {
+            console.log(new Date().toLocaleTimeString());
+        }, 1000);
+
+        clearInterval(tempo)
+
+        /* ********** Curso JavaScript: 45. Asincronía y el Event Loop - #jonmircha ********** */
+
+        /* Antes de explicar cómo funciona el modelo de JavaScript es importante entender algunos conceptos:
+         Procesamiento Monohilo y Multihilo.
+         Operaciones de CPU y Operaciones de I/O.
+         Operaciones Concurrentes y Paralelas.
+         Operaciones Bloqueantes y No Bloqueantes.
+         Operaciones Síncronas y Asíncronas.
+         Javascript usa un modelo asíncrono y no bloqueante, con un loop de eventos implementado en un solo hilo, (single thread) para operaciones de entrada y salida (input/output).
+         */
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>37_promesas</title>
+</head>
+
+<body>
+  <h1>37_promesas</h1>
+  <script>
+
+    function cuadradoPromise(value) {
+      if (typeof value !== "number") {
+        return Promise.reject(`El valor ${value} ingresado no es numero valido`)
+      }
+
+      return new Promise((resolve, reject) => {//1. se retorna una instacia una Nueva Prom 2.dentro se realiza una función anonima con resolve y reject.
+
+        setTimeout(() => {
+          resolve({//Resolve es la parte que es positiva de la operacion el reject es si se presenta un error
+            value,
+            result: value * value,
+          })
+
+        }, 0 | Math.random() * 1000);
+      })
+    }
+
+    // se invoca la funcion y como viene con promesa se maneja con then y con catch
+    //then = entonces realiza el proceso si viene con resolve
+    //catch = si viene con reject para procesar el error
+
+    cuadradoPromise(0)
+      .then((obj) => {//objeto es el resolve que devuelve la promise
+        //console.log(obj);
+        console.log("inicio promesa");
+        console.log(`Promise: Valor ${obj.value} Resultado ${obj.result}`);
+        return cuadradoPromise(1);//El return es para decir en este caso que se vuelva a ejecutar
+      })
+      // .then((obj) => {
+      //   console.log(`Promise: Valor ${obj.value} Resultado ${obj.result}`);
+      //   return cuadradoPromise(2);
+      // })
+      // .then((obj) => {
+      //   console.log(`Promise: Valor ${obj.value} Resultado ${obj.result}`);
+      //   return cuadradoPromise(3);
+      // })
+      // .then((obj) => {
+      //   console.log(`Promise: Valor ${obj.value} Resultado ${obj.result}`);
+      //   return cuadradoPromise(4);
+      // })
+      // .then((obj) => {
+      //   console.log(`Promise: Valor ${obj.value} Resultado ${obj.result}`);
+      //   return cuadradoPromise("5");
+      // })
+      // .then((obj) => {
+      //   console.log(`Promise: Valor ${obj.value} Resultado ${obj.result}`);
+      //   console.log("Fin promesa");
+      // })
+      .catch(err => console.error(err));
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos JavaScript</title>
+</head>
+
+<body>
+    <h1>Fundamentos JavaScript</h1>
+    <script>
+        var musica = "rock";
+        console.log("Variable despues antes del bloque", musica);
+        {
+            let musica = "Metal";
+            console.log("Variable dentro antes del bloque", musica);
+        }
+        console.log("Variable despues antes del bloque", musica);
+
+        console.log("----------------------------------------");
+
+        // Objeto
+        let objeto = {
+            nombre: "Jhon",
+            edad: 23
+        }
+        // Array
+        let colores = ["rojo", "verde", "zul"]
+
+        console.log(objeto);
+        console.log(colores);
+
+        objeto.correo="jkskjd@gmail.com";
+        colores.push=("naraja");
+
+        console.log(objeto);
+        console.log(colores);
+
+        console.log("-------String-----");
+
+        let nombre="Carlos";
+        let apellido="Alvarez"
+        console.log(
+            nombre.length,
+            apellido.length,
+            nombre.toUpperCase(),
+            apellido.toLowerCase(),
+            apellido.includes("alvarez")
+        );
+
+        // Ascento invertido o Backtick
+        let Saludo=`Hola mi nombre es ${nombre} ${apellido}.`;
+        console.log(Saludo);
+
+        // Numeros
+        let a = 4;
+        let b= new Number(2);
+        let c = 7.19;
+        let d ="5.6"
+        console.log(a,b);
+        console.log(c.toFixed(1));
+        console.log(parseInt(c));
+        console.log(parseFloat(c));
+        console.log(typeof c, typeof d);
+
+        // Booleanos
+
+        let verdadero = true;
+        let falso= false;
+        console.log(typeof verdadero,typeof falso);
+        
+        console.log(Boolean(0));
+        console.log(Boolean(-7));
+        console.log(Boolean(""));
+        console.log(Boolean(" "));
+
+        // Null-NaN- Undefined
+
+        // Undefined indica que no se le ha inicializado la variable y que el valor esta ausente
+
+        let indefinida;
+        console.log(indefinida);
+
+        // null es un valor especial que indica la ausencia de  un valor intencionalmente
+        let nulo = null;
+        console.log(nulo);
+
+        // NaN - Not a Number
+        let noEsUnNumero = "Hola" * 3;
+        console.log(noEsUnNumero);
+        </script>
+</body>
+
+</html>

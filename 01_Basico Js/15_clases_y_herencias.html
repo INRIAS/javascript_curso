@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>CLASES y HERENCIAS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h1>CLASES y HERENCIAS</h1>
+    <script>
+        // AZUCAR SINTACTICA
+
+        class Animal {
+            //El constructor es un metodo especial que se ejecuta en el momento de instanciar la clase
+            constructor(nombre, genero) {
+                this.nombre = nombre;
+                this.genero = genero;
+            }
+
+            //METODOS
+            sonar2() {
+                console.log("Hago sonidos cuando me llaman");
+            }
+
+            saludar() {
+                console.log(`Hola mi nombre es ${this.nombre}`);
+            }
+        }
+
+        //HERENCIA
+        class Perro extends Animal {
+            // Recibe los valores a procesar
+            constructor(nombre, genero, tamanio) {
+
+                // llamamos el metodo super para que llame al constructor padre que seria animal, y los atributos que se utilizaran de este
+                super(nombre, genero);
+                this.tamanio = tamanio;
+            }
+
+            sonar() {
+                console.log("Soy un perro y hago sonidos de ladrido");
+            }
+
+            ladrar() {
+                console.log("Guauuuu Guaaauuu");
+            }
+        }
+
+
+        const mimi = new Animal("Mimi", "Hembra");
+        const scooby = new Animal("Scooby", "Macho");
+        const bonito = new Perro("Bonito", "Macho", "Grande");
+
+        console.log(mimi);
+        mimi.saludar();
+        mimi.sonar2();
+
+        console.log(scooby);
+        scooby.saludar();
+        scooby.sonar2();
+
+        console.log(bonito);
+        bonito.saludar();
+        bonito.sonar2();
+    </script>
+
+</body>
+
+</html>

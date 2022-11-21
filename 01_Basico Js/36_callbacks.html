@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks</title>
+</head>
+
+<body>
+    <h1>Callbacks</h1>
+    <script>
+
+        function cuadradoCallback(value, callback) {
+            //recursivadad: una funcion se invoca a si misma dentro de si  - eso es lo que me generara el callback
+            //simulara la asincronia - ese ir y consultar una api externa
+            setTimeout(() => { //esto simulara el manejo de ajax o al consumo de datos a traves de un API o de archivos externos
+                callback(value, () => { return value * value; });  //callback("valor ingresado","la funcion a ejecutar") 
+            }, 0 | Math.random() * 1000);                  //en ese callback es donde se le dice qué tendrá( o sea que parametros) la funcion callback puesta antes como parametro (al inicio)
+        }
+
+        cuadradoCallback(0, (value, resultado) => {//por medio de una arrow function se llama al callback
+            console.log("Inicia Callback");
+            console.log(`Callback ${value}, ${resultado()}`) //se llama a la funcion que contiene value*value almacenada ahora el nombre de resultado
+            cuadradoCallback(1, (value, resultado) => {
+                console.log(`Callback ${value}, ${resultado()}`)
+                cuadradoCallback(2, (value, resultado) => {
+                    console.log(`Callback ${value}, ${resultado()}`)
+                    cuadradoCallback(3, (value, resultado) => {
+                        console.log(`Callback ${value}, ${resultado()}`)
+                        cuadradoCallback(4, (value, resultado) => {
+                            console.log(`Callback ${value}, ${resultado()}`)
+                            cuadradoCallback(5, (value, resultado) => {
+                                console.log(`Callback ${value}, ${resultado()}`)
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
