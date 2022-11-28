@@ -14,6 +14,6 @@ export async function Ajax(props) {
     d.getElementById("root").innerHTML=`
     <p><b>Error ${err.status}: ${message}</b></p>
     `;
-    d.querySelector(".loader").style.display="none";
+    // d.querySelector(".loader").style.display="none";
   }
 }
