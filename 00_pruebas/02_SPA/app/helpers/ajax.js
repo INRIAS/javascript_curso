@@ -13,6 +13,7 @@ export async function Ajax(props) {
     let message=err.statusText||"Ha ocurrido un error en la soicitud";
     d.getElementById("root").innerHTML=`
     <p><b>Error ${err.status}: ${message}</b></p>
-    `
+    `;
+    d.querySelector(".loader").style.display="none";
   }
 }

@@ -10,10 +10,9 @@ export async function ajax(props) {
     
   } catch (err) {
     let message = err.statusText || "Ha ocurrido un error";
-    document.getElementById("posts").innerHTML= `
+    document.getElementById("main").innerHTML= `
     <div class="error">
       <p>Error ${err.status}: ${message}</p>
-
     </div>
     `;
     document.querySelector(".loader").style.display="none";
