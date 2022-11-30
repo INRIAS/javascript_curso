@@ -2,6 +2,7 @@ import api from "../helpers/wp_api.js";
 import { ajax } from "../helpers/ajax.js";
 import { PostCard } from "./PostCard.js";
 import { Post } from "./Post.js";
+import { SearchCard } from "./SearchCard.js";
 
 export async function Router() {
   const d = document,
@@ -14,7 +15,6 @@ export async function Router() {
   $main.innerHTML = null;
 
   if (!hash || hash === "#/") {
-    $main.innerHTML = "<h2>Sección del Home</h2>";
     await ajax({
       url: api.POSTS,
       cbSuccess: (posts) => {
@@ -26,26 +26,33 @@ export async function Router() {
         $main.innerHTML = html;
       },
     });
-  } else if (hash.includes("#/search")) {
-    let query=localStorage.getItem("wpSearch");
 
-    if(!query) return false;
+  } else if (hash.includes("#/search")) {
+    let query = localStorage.getItem("wpSearch");
+
+    if (!query){
+      d.querySelector(".loader").style.display="none";
+      return false;
+    };
 
     await ajax({
       url: `${api.SEARCH}${query}`,
       cbSuccess: (search) => {
-        console.log(search);
-        if(!search){
-          $main.innerHTML=`<h2>"La busqueda de <b>${localStorage.getItem("wpSearch")}</b> no encontro resultados en sistema"}</h2>`
-        } else{
-          let html = "";
-          search.forEach(search=>{
-            html +=PostCard(search);
-            $main.innerHTML = html;
-          })
+        // console.log(search);
+        let html = "";
+        if (search.length === 0) {
+          html = `<p class="error">"La busqueda de <b>${localStorage.getItem(
+            "wpSearch"
+          )}</b> no encontro resultados en sistema"</p>`;
+        } else {
+          search.forEach((search) => {
+            html += SearchCard(search);
+          });
         }
+        $main.innerHTML = html;
       },
     });
+    
   } else if (hash === "#/contacto") {
     $main.innerHTML = "<h2>Sección de Contacto</h2>";
   } else {
@@ -54,11 +61,10 @@ export async function Router() {
       cbSuccess: (post) => {
         console.log(post);
         let html = "";
-        html=Post(post)
+        html = Post(post);
         $main.innerHTML = html;
       },
     });
-
   }
   d.querySelector(".loader").style.display = "none";
 }

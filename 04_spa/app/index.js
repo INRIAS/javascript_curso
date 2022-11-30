@@ -1,6 +1,10 @@
 import { App } from "./App.js";
+import api from "./helpers/wp_api.js";
 
-document.addEventListener("DOMContentLoaded", App());
-window.addEventListener("hashchange", App);
+document.addEventListener("DOMContentLoaded", App);
+window.addEventListener("hashchange", ()=>{
+  api.page=1
+  App()
+});
 //Parentesis invocacion inmediata
 //Sin parentesis espera primero la carga del DOM
