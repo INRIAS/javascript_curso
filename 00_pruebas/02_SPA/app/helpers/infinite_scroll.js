@@ -1,6 +1,6 @@
-import { PostCard } from "../components/PostCard.js";
+import { PostCard } from "../components/Postcard.js";
 import { SearchCard } from "../components/SearchCard.js";
-import { ajax } from "./ajax.js";
+import { Ajax } from "./ajax.js";
 import api from "./wp_api.js";
 
 export async function infiniteScroll() {
@@ -27,9 +27,9 @@ export async function infiniteScroll() {
         return false;
       }
 
-      d.querySelector(".loader").style.display="block";
-      
-      await ajax({
+      d.querySelector(".loader").style.display = "block";
+
+      await Ajax({
         url: apiURL,
         cbSuccess: (posts) => {
           let html = "";
@@ -37,7 +37,7 @@ export async function infiniteScroll() {
             html += Component(post);
           });
           d.getElementById("main").insertAdjacentHTML("beforeend", html);
-          d.querySelector(".loader").style.display="none";
+          d.querySelector(".loader").style.display = "none";
         },
       });
     }

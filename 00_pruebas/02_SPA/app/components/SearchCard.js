@@ -11,3 +11,4 @@ export function SearchCard(props) {
   </article>
   `;
 }
+

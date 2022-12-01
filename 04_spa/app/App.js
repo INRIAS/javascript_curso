@@ -5,8 +5,7 @@ import { Router } from "./components/Router.js";
 import { infiniteScroll } from "./helpers/infinite_scroll.js";
 
 export function App() {
-  const d = document,
-    $root = document.getElementById("root");
+  const $root = document.getElementById("root");
   $root.innerHTML=null;
   $root.insertAdjacentElement("afterbegin", Header());
   $root.insertAdjacentElement("beforeend", Main());
