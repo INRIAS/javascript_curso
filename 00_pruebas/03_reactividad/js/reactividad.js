@@ -7,17 +7,21 @@ const state = {
 
 //Template evalua los valores que hay
 const template = () => {
-  if (state.todoList.length < 1) {
+  if (template.locateState.todoList.length < 1) {
     return `<p><em>Aún no se asignaron tareas a realizar</em></p>`;
   }
-  let todo = state.todoList.map((item) => `<li>${item}</li>`).join("");
+  let todo = template.locateState.todoList.map((item) => `<li>${item}</li>`).join("");
   return todo;
+};
+
+template.locateState={
+  todoList:[]
 };
 
 //Renderizar pinta los valores evaluados
 
 const render = () => {
-  console.log(state);
+  console.log(template.locateState);
   const $list = d.getElementById("todo-list");
   if (!$list) return;
   $list.innerHTML = template();
@@ -27,11 +31,14 @@ const render = () => {
 
 const setState = (obj) => {
   for (let key in obj) {
-    if (state.hasOwnProperty(key)) {
-      state[key] = obj[key];
+    if (template.locateState.hasOwnProperty(key)) {
+      template.locateState[key] = obj[key];
     }
   }
+  render();
 };
+
+const getState=()=>JSON.parse(JSON.stringify(template.locateState))
 
 //Estableciendo valores por defecto
 
@@ -48,9 +55,13 @@ d.addEventListener("submit", (e) => {
   const $item = d.getElementById("todo-item");
   if(!$item)return;
 
-  state.todoList.push($item.value);
-  render();
-
+  // state.todoList.push($item.value);
+  const lastState=getState();
+  lastState.todoList.push($item.value);
+  setState({
+    todoList:lastState.todoList
+  })
+  
   //clean
   $item.value = "";
   $item.focus();
