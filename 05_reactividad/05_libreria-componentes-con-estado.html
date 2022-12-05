@@ -1,20 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Libreria de Componentes con Estado</title>
-</head>
-<body>
-  <h1>Libreria de Componentes con Estado/h1>
-  <form id="to-do-form">
-    <input type="text" id="to-do-item" placeholder="Tarea por hacer">
-    <input type="submit" value="Agregar">
-  </form>
-  <hr>
-  <h2>Lista de tareas</h2>
-  <ul id="to-do-list"></ul>
-</body>
-<script src="js/05_libreia.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Libreria de Componentes con Estado</title>
+  </head>
+  <body>
+    <h1>Libreria de Componentes con Estado</h1>
+    <form id="to-do-form">
+      <input type="text" id="to-do-item" placeholder="Tarea por hacer" />
+      <input type="submit" value="Agregar" />
+    </form>
+    <hr />
+    <h2>Lista de tareas</h2>
+    <ul id="to-do-list"></ul>
+
+
+    <script src="js/Component.js"></script>
+    <script>
+      const d = document,
+        lib=new Component({}),
+        app = new Component({
+          el: "#todo-list",
+          data: {
+            todoList: [],
+          },
+          template: function (props) {
+            if (props.todoList.length < 1) {
+              return `<p><em>Lista sin tareas por hacer</em></p>`;
+            }
+            let todos = props.todoList
+              .map((item) => `<li>${item}</li>`)
+              .join("");
+            return todos;
+          },
+
+        })
+
+      d.addEventListener("DOMContentLoaded", app.render);
+
+      app.setState({
+        todoList: ["Tarea 1", "Tarea 2", "Tarea 3"],
+      });
+
+      d.addEventListener("submit", (e) => {
+        if (!e.target.matches("#to-do-form")) return false;
+        e.preventDefault();
+
+        const $item = d.getElementById("to-do-item");
+        if (!$item) return;
+
+        //Actualizar el state de forma reactiva
+        // state.todoList.push($item.value);
+        const lastState = app.getState();
+        lastState.todoList.push($item.value);
+        app.setState({ todoList: lastState.todoList });
+
+        //Clean
+        $item.value = "";
+        $item.focus();
+      });
+    </script>
+  </body>
 </html>
