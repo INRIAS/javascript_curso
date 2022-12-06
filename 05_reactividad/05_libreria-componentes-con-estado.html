@@ -16,13 +16,12 @@
     <h2>Lista de tareas</h2>
     <ul id="to-do-list"></ul>
 
-
     <script src="js/Component.js"></script>
     <script>
       const d = document,
-        lib=new Component({}),
+        lib = new Component({}),
         app = new Component({
-          el: "#todo-list",
+          el: "#to-do-list",
           data: {
             todoList: [],
           },
@@ -35,8 +34,7 @@
               .join("");
             return todos;
           },
-
-        })
+        });
 
       d.addEventListener("DOMContentLoaded", app.render);
 
