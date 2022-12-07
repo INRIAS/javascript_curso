@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reactividad en Estados</title>
+  </head>
+  <body>
+    <h1>Reactividad en Estados</h1>
+
+    <form id="todo-form">
+      <input type="text" id="todo-item" placeholder="Tarea por realizar" />
+      <input type="submit" value="Agregar" />
+    </form>
+    <hr />
+    <h2>Tareas asignadas</h2>
+    <ul id="todo-list"></ul>
+  </body>
+  <script src="js/Component.js"></script>
+  <script>
+    const d = document;
+    const app = new Component({
+      el: "todo-list",
+      data: { todoList: [] },
+      template: function (props) {
+        if (props.todoList.length < 1) {
+          return `<p><em>Aún no se asignaron tareas a realizar</em></p>`;
+        }
+        let todo = props.todoList
+          .map((item) => `<li>${item}</li>`)
+          .join("");
+        return todo;
+      },
+    });
+
+    d.addEventListener("DOMContentLoaded", app.render);
+
+    app.setState({
+      todoList: ["Tarea 1", "Tarea 2", "Tarea 3"],
+    });
+
+
+    d.addEventListener("submit", (e) => {
+      if (!e.target.matches("#todo-form")) return false;
+      e.preventDefault();
+
+      const $item = d.getElementById("todo-item");
+      if (!$item) return;
+
+      // state.todoList.push($item.value);
+      const lastState = app.getState();
+      lastState.todoList.push($item.value);
+      app.setState({
+        todoList: lastState.todoList,
+      });
+
+      //clean
+      $item.value = "";
+      $item.focus();
+    });
+  </script>
+</html>
